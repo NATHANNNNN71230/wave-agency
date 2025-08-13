@@ -36,10 +36,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
         />
         <Script
-          defer
-          data-domain="wave-agency.vercel.app"
-          src="https://plausible.io/js/script.js"
-        />
+          <Script
+  defer
+  data-domain="wave-agency-aqsx-2m637kave-nathans-projects-1efdf863.vercel.app"
+  src="https://plausible.io/js/script.js"
+/>
       </head>
       <body className="font-[Inter]">
         <header className="sticky top-0 z-50 backdrop-blur bg-black/30 border-b border-white/10">
