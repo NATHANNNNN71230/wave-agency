@@ -40,6 +40,13 @@ export default function Hero() {
 >
   Demander un devis
 </a>
+<a
+  href="/contact"
+  onClick={() => (window as any).plausible?.("CTA_DemandeDevis")}
+  className="rounded-2xl bg-white/10 px-6 py-3 text-white backdrop-blur transition hover:bg-white/20"
+>
+  Demander un devis
+</a>
 
           <a href="/realisations" className="rounded-2xl border border-white/20 px-6 py-3 text-white/80 hover:text-white">Voir les réalisations</a>
         </motion.div>
