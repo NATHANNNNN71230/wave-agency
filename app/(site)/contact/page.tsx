@@ -1,22 +1,36 @@
-export default function ContactPage(){
+import type { Metadata } from "next";
+import ContactForm from "./ContactForm";
+
+// (facultatif mais propre pour le SEO)
+export const metadata: Metadata = {
+  title: "Contact • Wave Agency",
+  description:
+    "Parlez-nous de votre projet : réponse en 24h. Devis gratuit, sites modernes et performants en React/Next.js.",
+};
+
+export default function ContactPage() {
   return (
-    <main className="min-h-dvh bg-black">
-      <section className="container py-16">
-        <h1 className="text-4xl font-bold">Contact</h1>
-        <form className="mt-8 grid gap-4 max-w-xl" action="https://formsubmit.co/waveagency.booking@gmail.com" method="POST">
-          <input type="hidden" name="_subject" value="Nouveau message depuis Wave Agency" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input name="name" placeholder="Nom" className="rounded-xl bg-white/[0.06] px-4 py-3 outline-none focus:ring-2 ring-white/30" required />
-          <input type="email" name="email" placeholder="Email" className="rounded-xl bg-white/[0.06] px-4 py-3 outline-none focus:ring-2 ring-white/30" required />
-          <input name="phone" placeholder="Téléphone" className="rounded-xl bg-white/[0.06] px-4 py-3 outline-none focus:ring-2 ring-white/30" />
-          <textarea name="message" placeholder="Votre message" rows={5} className="rounded-xl bg-white/[0.06] px-4 py-3 outline-none focus:ring-2 ring-white/30" required />
-          <button className="rounded-xl bg-white/10 px-6 py-3 hover:bg-white/20">Envoyer</button>
-        <form
-  className="mt-8 grid gap-4 max-w-xl"
-  action="https://formsubmit.co/waveagency.booking@gmail.com"
-  method="POST"
-  onSubmit={() => (window as any).plausible?.("Form_Contact_Submit")}
->
+    <main className="container py-16">
+      <h1 className="text-3xl md:text-4xl font-bold text-white">Contact</h1>
+      <p className="mt-3 max-w-2xl text-zinc-300">
+        Dites-nous ce que vous voulez construire. Réponse sous 24h.
+      </p>
+
+      {/* Formulaire côté client (traque Plausible dans ContactForm.tsx) */}
+      <ContactForm />
+
+      <section className="mt-10 text-sm text-zinc-400">
+        <p>
+          Ou contactez-nous directement :
+          {" "}
+          <a className="underline" href="mailto:waveagency.booking@gmail.com">
+            waveagency.booking@gmail.com
+          </a>
+          {"  •  "}
+          <a className="underline" href="https://wa.me/33744266719">
+            WhatsApp
+          </a>
+        </p>
       </section>
     </main>
   );
