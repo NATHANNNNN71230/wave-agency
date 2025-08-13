@@ -1,5 +1,8 @@
 "use client";
 import { motion } from "framer-motion";
+import ShinyText from "./ShinyText";
+import SplitText from "./SplitText";
+
 
 export default function Hero() {
   return (
