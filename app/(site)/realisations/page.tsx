@@ -1,10 +1,7 @@
-export default function RealisationsPage(){
-  return (
-    <main className="min-h-dvh bg-black">
-      <section className="container py-16">
-        <h1 className="text-4xl font-bold">Réalisations</h1>
-        <p className="mt-4 text-zinc-300">Bientôt : études de cas détaillées avec avant/après et KPI.</p>
-      </section>
-    </main>
-  );
-}
+import CaseCard from "../_components/CaseCard";
+
+<div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+  <CaseCard title="Studio Noon — refonte vitrine" tag="Site vitrine • Next.js" />
+  <CaseCard title="E-shop minimal" tag="E-commerce • UX clean" />
+  <CaseCard title="Identité & landing" tag="Branding • Hero animé" />
+</div>
