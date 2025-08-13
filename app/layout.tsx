@@ -26,33 +26,25 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="fr">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@600;700&display=swap"
-          rel="stylesheet"
-        />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+        {/* >>> Plausible : DOIT contenir exactement TON sous-domaine <<< */}
         <Script
-  defer
-  data-domain="wave-agency-aqsx-2m637kave-nathans-projects-1efdf863.vercel.app"
-  src="https://plausible.io/js/script.js"
-/>
+          defer
+          data-domain="wave-agency-aqsx-2m637kave-nathans-projects-1efdf863.vercel.app"
+          src="https://plausible.io/js/script.js"
+        />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <meta property="og:image" content="/og.png" />
       </head>
       <body className="font-[Inter]">
         <header className="sticky top-0 z-50 backdrop-blur bg-black/30 border-b border-white/10">
           <div className="container h-14 flex items-center justify-between">
             <Link href="/" className="flex items-center gap-2">
               <img src="/logo.png" alt="Wave Agency" className="h-6 w-auto" />
-              <span className="font-[Space_Grotesk] font-semibold">
-                <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
-<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-<meta property="og:image" content="/og.png" />
-                Wave Agency
-              </span>
+              <span className="font-[Space_Grotesk] font-semibold">Wave Agency</span>
             </Link>
             <nav className="flex items-center gap-6 text-sm text-zinc-300">
               <Link href="/processus" className="hover:text-white">Processus</Link>
@@ -77,11 +69,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <a href="/services" className="hover:text-white">Services</a>
             </nav>
             <div className="text-sm">
-              <p>
-                <a href={`mailto:${site.email}`} className="hover:text-white">
-                  {site.email}
-                </a>
-              </p>
+              <p><a href={`mailto:${site.email}`} className="hover:text-white">{site.email}</a></p>
               <p className="mt-1">
                 <a href={site.instagram} className="hover:text-white">Instagram</a> •{" "}
                 <a href={site.whatsapp} className="hover:text-white">WhatsApp</a> •{" "}
