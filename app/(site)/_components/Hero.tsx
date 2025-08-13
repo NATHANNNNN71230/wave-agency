@@ -33,7 +33,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="mt-10 flex flex-wrap items-center gap-4"
         >
-        <a
+<a
   href="/contact"
   onClick={() => (window as any).plausible?.("CTA_DemandeDevis")}
   className="rounded-2xl bg-white/10 px-6 py-3 text-white backdrop-blur transition hover:bg-white/20"
