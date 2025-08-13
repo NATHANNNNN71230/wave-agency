@@ -1,7 +1,9 @@
 import { MetadataRoute } from "next";
+import { site } from "@/lib/site";
+
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: { userAgent: "*", allow: "/" },
-    sitemap: "https://wave-agency.vercel.app/sitemap.xml",
+    sitemap: `${site.domain}/sitemap.xml`,
   };
 }
