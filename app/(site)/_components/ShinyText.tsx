@@ -6,7 +6,11 @@ export default function ShinyText({ children }: { children: ReactNode }) {
     <span className="relative inline-block bg-[linear-gradient(110deg,#fff_0%,rgba(255,255,255,0.35)_45%,#fff_55%)] bg-[length:200%_100%] animate-[shine_2.2s_linear_infinite] bg-clip-text text-transparent">
       {children}
       <style jsx global>{`
-        @keyframes shine { to { background-position-x: -200%); }
+        @keyframes shine {
+          to {
+            background-position-x: -200%;
+          }
+        }
       `}</style>
     </span>
   );
