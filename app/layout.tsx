@@ -1,59 +1,84 @@
-"use client";
+import type { Metadata } from "next";
+import Script from "next/script";
+import Link from "next/link";
+import Image from "next/image";
+import "./globals.css";
+import { site } from "@/lib/site";
 
-import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
-
-type CaseCardProps = {
-  title: string;
-  tag: string;
-  img?: string;   // ex: "/projects/noon.jpg"
-  href?: string;  // ex: "/realisations/noon"
+export const metadata: Metadata = {
+  metadataBase: new URL(site.domain),
+  title: {
+    default: "Wave Agency — Sites modernes, performants & SEO",
+    template: "%s • Wave Agency",
+  },
+  description:
+    "Agence créative: sites vitrines & e-commerce, identité visuelle, social & contenus. React/Next.js, SEO technique, design sur-mesure.",
+  openGraph: {
+    type: "website",
+    locale: "fr_FR",
+    url: site.domain,
+    siteName: "Wave Agency",
+  },
+  robots: { index: true, follow: true },
 };
 
-export default function CaseCard({
-  title,
-  tag,
-  img = "/og.png",
-  href = "/contact",
-}: CaseCardProps) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <motion.a
-      whileHover={{ y: -4 }}
-      href={href}
-      className="group relative block overflow-hidden rounded-2xl border border-white/10 bg-white/5"
-      onClick={() => (window as any).plausible?.("CaseCard_Click")}
-    >
-      {/* Visuel */}
-      <div className="relative h-52 w-full">
-        <img
-          src={img}
-          alt={title}
-          className="absolute inset-0 h-full w-full object-cover opacity-90 transition-transform duration-300 group-hover:scale-[1.02]"
+    <html lang="fr">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@600;700&display=swap"
+          rel="stylesheet"
         />
-        {/* Glare / glow subtil */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-          style={{
-            background:
-              "radial-gradient(80% 60% at 20% -10%, rgba(124,62,255,.25), transparent 60%), radial-gradient(60% 40% at 120% 120%, rgba(255,255,255,.06), transparent 70%)",
-          }}
-        />
-        {/* Fade en bas pour la lisibilité du titre */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/60 to-transparent"
-        />
-      </div>
-
-      {/* Texte */}
-      <div className="relative z-10 flex items-center justify-between p-4">
-        <div>
-          <p className="text-xs uppercase tracking-wide text-violet-300/90">{tag}</p>
-          <h3 className="mt-1 text-base font-semibold text-white">{title}</h3>
-        </div>
-        <ArrowUpRight className="size-5 text-white/60 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-white" />
-      </div>
-    </motion.a>
+        <Script defer data-domain="grand-madeleine-5ba2c2.netlify.app" src="https://plausible.io/js/script.js" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <meta property="og:image" content="/og.png" />
+      </head>
+      <body className="font-[Inter] bg-black text-white">
+        <header className="sticky top-0 z-50 backdrop-blur bg-black/30 border-b border-white/10">
+          <div className="container h-14 flex items-center justify-between">
+            <Link href="/" className="flex items-center gap-2">
+              <Image src="/logo.png?v=2" alt="Wave Agency" width={96} height={96} className="h-7 w-auto" priority />
+              <span className="font-[Space_Grotesk] font-semibold">Wave Agency</span>
+            </Link>
+            <nav className="flex items-center gap-6 text-sm text-zinc-300">
+              <Link href="/processus" className="hover:text-white">Processus</Link>
+              <Link href="/services" className="hover:text-white">Services</Link>
+              <Link href="/realisations" className="hover:text-white">Réalisations</Link>
+              <Link href="/a-propos" className="hover:text-white">À propos</Link>
+              <Link href="/contact" className="rounded-xl bg-white/10 px-3 py-1.5 hover:bg-white/20 text-white">Contact</Link>
+            </nav>
+          </div>
+        </header>
+        {children}
+        <footer className="border-t border-white/10 bg-black px-6 py-10 text-zinc-400">
+          <div className="container grid gap-6 md:grid-cols-3">
+            <div>
+              <p className="font-semibold text-white">{site.name}</p>
+              <p className="mt-2 text-sm">Sites modernes & performants. Vénissieux • France</p>
+            </div>
+            <nav className="grid gap-2 text-sm">
+              <a href="/mentions-legales" className="hover:text-white">Mentions légales</a>
+              <a href="/confidentialite" className="hover:text-white">Confidentialité</a>
+              <a href="/processus" className="hover:text-white">Notre processus</a>
+              <a href="/services" className="hover:text-white">Services</a>
+            </nav>
+            <div className="text-sm">
+              <p><a href={`mailto:${site.email}`} className="hover:text-white">{site.email}</a></p>
+              <p className="mt-1">
+                <a href={site.instagram} className="hover:text-white">Instagram</a> •{" "}
+                <a href={site.whatsapp} className="hover:text-white">WhatsApp</a> •{" "}
+                <a href={site.snapchat} className="hover:text-white">Snapchat</a>
+              </p>
+              <p className="mt-2">© {new Date().getFullYear()} {site.name}. Tous droits réservés.</p>
+            </div>
+          </div>
+        </footer>
+      </body>
+    </html>
   );
 }
