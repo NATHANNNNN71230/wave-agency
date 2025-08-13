@@ -1,4 +1,4 @@
-import CaseCard from "../_components/CaseCard";
+import CaseCard from "./CaseCard";
 export default function RealisationsPage() {
   return (
     <main className="container py-16">
