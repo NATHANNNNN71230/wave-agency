@@ -45,9 +45,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <header className="sticky top-0 z-50 backdrop-blur bg-black/30 border-b border-white/10">
           <div className="container h-14 flex items-center justify-between">
             <Link href="/" className="flex items-center gap-2">
-              <img src="/logo.png" alt="Wave Agency" className="h-6 w-auto" />
-              <span className="font-[Space_Grotesk] font-semibold">Wave Agency</span>
-            </Link>
+  <Image
+    src="/logo.png?v=2"   // le ?v=2 force l’actualisation du fichier
+    alt="Wave Agency"
+    width={96}
+    height={96}
+    className="h-7 w-auto"
+    priority
+  />
+  <span className="font-[Space_Grotesk] font-semibold">Wave Agency</span>
+</Link>
             <nav className="flex items-center gap-6 text-sm text-zinc-300">
               <Link href="/processus" className="hover:text-white">Processus</Link>
               <Link href="/services" className="hover:text-white">Services</Link>
