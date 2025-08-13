@@ -3,6 +3,8 @@ import Script from "next/script";
 import "./globals.css";
 import Link from "next/link";
 import { site } from "@/lib/site";
+import Image from "next/image";
+
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.domain),
