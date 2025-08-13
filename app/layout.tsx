@@ -36,7 +36,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
         />
         <Script
-          <Script
   defer
   data-domain="wave-agency-aqsx-2m637kave-nathans-projects-1efdf863.vercel.app"
   src="https://plausible.io/js/script.js"
