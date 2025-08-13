@@ -48,6 +48,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Link href="/" className="flex items-center gap-2">
               <img src="/logo.png" alt="Wave Agency" className="h-6 w-auto" />
               <span className="font-[Space_Grotesk] font-semibold">
+                <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<meta property="og:image" content="/og.png" />
                 Wave Agency
               </span>
             </Link>
